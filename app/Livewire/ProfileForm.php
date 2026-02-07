@@ -5,6 +5,8 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Profile;
+use Illuminate\Container\Attributes\Auth;
+
 
 class ProfileForm extends Component
 {
@@ -26,7 +28,7 @@ class ProfileForm extends Component
             'photo' => 'nullable|image|max:2048',
         ]);
 
-        $user = auth()->save();
+        $user = Auth::user();
 
         $photoPath = null;
         if ($this->photo) {

@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class JobOffer extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'title',
@@ -14,13 +17,12 @@ class JobOffer extends Model
         'type_contrat',
         'entreprise',
         'image',
+        'status'
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class);
+    public function recruiter()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
-    public function applications() {
-        return $this->hasMany(Application::class);
-    }
-
 }
+

@@ -8,7 +8,7 @@
                     {{ $offer->title }}
                 </a>
             </h3>
-            <p>{{ $offer->entreprise }} – {{ $offer->type_contrat }}</p>
+            <p>{{ $offer->entreprise }} || {{ $offer->type_contrat }}</p>
         </div>
         <hr>
     @endforeach
