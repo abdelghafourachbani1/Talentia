@@ -1,21 +1,35 @@
 <?php
 
-    namespace App\Livewire;
+namespace App\Livewire;
 
-    use Livewire\Component;
-    use App\Models\JobOffer;
+use Livewire\Component;
+use Livewire\WithPagination;
+use App\Models\JobOffer;
 
-    class JobOffersList extends Component
+class JobOffersList extends Component
+{
+    use WithPagination;
+
+    public $perPage = 6;
+    public $search = '';
+
+    public function loadMore()
     {
-        public $perPage = 15;
-
-        public function loadMore() {
-            $this->perPage += 5;
-        }
-
-        public function render() {
-            return view('livewire.job-offers-list', [
-                'offers' => JobOffer::latest()->take($this->perPage)->get()
-            ]);
-        }
+        $this->perPage += 6;
     }
+
+    public function render()
+    {
+        $query = JobOffer::query()
+            ->where('status', 'active')
+            ->whereDate('expires_at', '>=', now());
+
+        if ($this->search) {
+            $query->where('title', 'like', '%' . $this->search . '%');
+        }
+
+        return view('livewire.job-offers-list', [
+            'offers' => $query->latest()->paginate($this->perPage)
+        ]);
+    }
+}

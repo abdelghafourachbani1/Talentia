@@ -11,32 +11,11 @@ class ApplyButton extends Component
 {
     public $jobOfferId;
 
-    public function apply()
-    {
-        if (!Auth::check()) {
-            session()->flash('success', 'You must be logged in to apply.');
-            return;
-        }
+public function apply()
+{
+    dd('apply clicked');
+}
 
-        $offer = JobOffer::findOrFail($this->jobOfferId);
-
-        if ($offer->status === 'closed') {
-            session()->flash('success', 'This offer is closed.');
-            return;
-        }
-
-        Application::firstOrCreate(
-            [
-                'user_id' => Auth::id(),
-                'job_offer_id' => $this->jobOfferId,
-            ],
-            [
-                'status' => 'applied'
-            ]
-        );
-
-        session()->flash('success', 'You applied successfully!');
-    }
 
     public function render()
     {

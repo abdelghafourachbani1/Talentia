@@ -18,6 +18,8 @@ class ApplyToJob extends Component
         ]);
 
         session()->flash('success', 'Application sent');
+
+        return redirect()->route('offers.index');
     }
 
     public function render()
