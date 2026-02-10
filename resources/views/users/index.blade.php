@@ -20,14 +20,6 @@
                 </div>
             </div>
 
-            <!-- Minimalist Search -->
-            <div class="mb-12">
-                <div class="relative max-w-xl">
-                    <input wire:model.live.debounce.300ms="search" type="text"
-                        placeholder="Search by Name or Specialty..."
-                        class="w-full bg-black border-2 border-zinc-800 rounded-2xl py-4 px-6 text-white text-sm font-bold placeholder:text-zinc-700 focus:border-orange-500/50 focus:ring-4 focus:ring-orange-500/5 transition-all outline-none">
-                </div>
-            </div>
 
             <livewire:users-list />
         </div>

@@ -85,9 +85,9 @@
                     Focused on your skills and achievements.</p>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-gray-900 mb-4">Swift Search</h3>
-                <p class="text-gray-500 leading-relaxed text-sm">Our streamlined search helps you find the right role in
-                    seconds, not hours.</p>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Swift Discovery</h3>
+                <p class="text-gray-500 leading-relaxed text-sm">Browse our curated feed of high-value roles across the
+                    elite tech landscape.</p>
             </div>
             <div>
                 <h3 class="text-xl font-bold text-gray-900 mb-4">Direct Connections</h3>
